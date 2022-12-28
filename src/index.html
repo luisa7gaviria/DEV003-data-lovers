@@ -2,11 +2,59 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Data Lovers</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S. Ghibli Lovers</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <div id="root"></div>
+
+  <body> 
+    <div>
+      <input type="search" class="search" placeholder="Buscar">
+    </div>
+    <header>
+      <a href="index.html"><img class="logo" src="Imágenes/ghiblilogo.png"></a>
+      <h1>GHIBLI FNTICS</h1>
+    </header>
+
+    <div id="root" class="container">
+
+      <aside class="bar">
+
+        <a href=""> Lugares </a> <!-- Link a interfaz con los datos de lugares -->
+        <a href=""> Directores </a> <!-- Link a interfaz con los datos de los directores-->
+        <a href=""> Productores </a> <!-- Link a interfaz con los datos de los productores-->
+
+      </aside>
+
+      <section class="main">
+        <div class="movie">
+        <a href="seg-interfaz.html"><img src="Imágenes/movies.jpg" alt="Todas las peliculas"></a>
+        <button id="" class="mainbutton">Películas</button>
+      </div>
+
+        <div class="characters">
+        <img src="Imágenes/psjs.jpg" alt="Todos los personajes">
+        <button class="mainbutton">personajes</button>
+      </div>
+      </section>
+
+      </div>
+    <footer>
+      <a href="https://www.facebook.com/GhibliUSA/" target="_blank"><img class="redes" src="Imágenes/Facebook.png" alt="Facebook" ></a>
+      <a href="https://www.instagram.com/ghibliusa/" target="_blank"><img class="redes" src="Imágenes/instagram.png" alt="Instagram" ></a>
+      <a href="https://www.youtube.com/@studioghibli4734" target="_blank"><img class="redes" src="Imágenes/Youtube.png" alt="Youtube" ></a>
+
+      <div>
+        <a>Política de privacidad</a>
+        <a>Ayuda</a>
+        <a>Términos de uso</a>
+        <a>Sugerencia</a>
+
+      </div>
+
+    </footer>
+
     <script src="main.js" type="module"></script>
   </body>
 </html>

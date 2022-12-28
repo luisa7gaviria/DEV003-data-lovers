@@ -1,0 +1,16 @@
+html{
+    display:flex;
+    background-image: url(Imágenes/ghibackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.logo{
+    width: 80px;
+    height: 40px;
+
+}
+.redes{
+    width: 50px;
+    height: 50px;
+
+}

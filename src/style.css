@@ -1,16 +1,48 @@
 html{
-    display:flex;
+    box-sizing: border-box;
     background-image: url(Imágenes/ghibackground.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    display:flex;
+    flex-wrap:wrap;
+    margin:0;
+    padding:0;
+}
+.search{
+    width:auto;
 }
 .logo{
     width: 80px;
     height: 40px;
 
 }
+.movie img{
+    position: relative;
+    top: 20%;
+    left: 50%;
+    width: 70px;
+    height: 100px;
+    
+
+}
+.characters img{
+    position: relative;
+    top: 20%;
+    left: 50%;
+    width: 70px;
+    height: 100px;
+    
+
+}
 .redes{
     width: 50px;
     height: 50px;
 
+}
+.info{
+    position: relative;
+    background-color: aliceblue;
+}
+p{
+    color: rgb(196, 8, 8);
 }

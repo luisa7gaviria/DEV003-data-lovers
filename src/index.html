@@ -10,14 +10,14 @@
 
   <body> 
     <div>
-      <input type="search" class="search" placeholder="Buscar">
+      <input type="search" class="search" placeholder=" 🔍 Buscar">
     </div>
     <header>
       <a href="index.html"><img class="logo" src="Imágenes/ghiblilogo.png"></a>
       <h1>GHIBLI FNTICS</h1>
     </header>
 
-    <div id="root" class="container">
+    <main class="container">
 
       <aside class="bar">
 
@@ -27,34 +27,38 @@
 
       </aside>
 
-      <section class="main">
-        <div class="movie">
-        <a href="seg-interfaz.html"><img src="Imágenes/movies.jpg" alt="Todas las peliculas"></a>
-        <button id="" class="mainbutton">Películas</button>
+      <section>
+        <div class="covers">
+        <a><img src="Imágenes/movies.jpg" alt="Todas las peliculas"></a>
+        <button id="botonPeliculas" class="mainbutton">Películas</button>
       </div>
 
-        <div class="characters">
+        <div class="covers">
         <img src="Imágenes/psjs.jpg" alt="Todos los personajes">
-        <button class="mainbutton">personajes</button>
+        <button id = "botonPersonajes" class="mainbutton">Personajes</button>
       </div>
       </section>
-
-      </div>
-    <footer>
-      <a href="https://www.facebook.com/GhibliUSA/" target="_blank"><img class="redes" src="Imágenes/Facebook.png" alt="Facebook" ></a>
-      <a href="https://www.instagram.com/ghibliusa/" target="_blank"><img class="redes" src="Imágenes/instagram.png" alt="Instagram" ></a>
-      <a href="https://www.youtube.com/@studioghibli4734" target="_blank"><img class="redes" src="Imágenes/Youtube.png" alt="Youtube" ></a>
-
-      <div>
-        <a>Política de privacidad</a>
-        <a>Ayuda</a>
-        <a>Términos de uso</a>
-        <a>Sugerencia</a>
-
+      <div id="films">
+        <!-- aqui va la informacion -->
       </div>
 
-    </footer>
+     
+     <footer>
+       <a href="https://www.facebook.com/GhibliUSA/" target="_blank"><img class="redes" src="Imágenes/Facebook.png" alt="Facebook" ></a>
+       <a href="https://www.instagram.com/ghibliusa/" target="_blank"><img class="redes" src="Imágenes/instagram.png" alt="Instagram" ></a>
+       <a href="https://www.youtube.com/@studioghibli4734" target="_blank"><img class="redes" src="Imágenes/Youtube.png" alt="Youtube" ></a>
 
+       <div>
+         <a>Política de privacidad</a>
+         <a>Ayuda</a>
+         <a>Términos de uso</a>
+         <a>Sugerencia</a>
+       </div>
+      </footer>
+
+    </main>
+
+    
     <script src="main.js" type="module"></script>
   </body>
 </html>

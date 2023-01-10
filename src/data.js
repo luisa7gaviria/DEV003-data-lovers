@@ -1,24 +1,31 @@
-
-
- export const orderAlphabet = (filmsTitle, order) =>{
-  filmsTitle.sort((a,b) => (a.title > b.title)? 1 : -1)
-  if (order === 'A-Z'){
-    return filmsTitle
-   }else if(order === 'Z-A') {
-   return filmsTitle.reverse();
-   }
- } 
- console.log(orderAlphabet())
+export function drawFilms(filmsArray){               //Funcion cuyo unico fin es PINTAR, DEVOLVER EL HTML DE CADA FILM
   
+  return filmsArray.map( function(film){ 
 
- 
-  
+    return `
+    <div class="film-container">
+      <h4>${film.title} </h4> 
+      <p> ${film.release_date} </p>
+    </div>
+    `
+  } ).join('')
+};
+
+export const orderAlphabet = (film) =>{
+  film.sort((a, b) => {
+  a = a.toLowerCase();
+  b = b.toLowerCase();
+  if (a == b) {
+    return 0;
+  }
+  if (a < b) {
+    return -1;
+  }
+  return 1;
+});
+}
 
 
-    
- 
-
-   
 
 
 

@@ -1,48 +1,132 @@
 html{
     box-sizing: border-box;
-    background-image: url(Imágenes/ghibackground.jpg);
+    background-image: url(Imágenes/flower.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
+     
+}
+body{
+    
     display:flex;
-    flex-wrap:wrap;
+    flex-direction: column;
     margin:0;
     padding:0;
-}
-.search{
-    width:auto;
-}
-.logo{
-    width: 80px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
+    
 
 }
-.movie img{
-    position: relative;
-    top: 20%;
-    left: 50%;
-    width: 70px;
+.search{
+    position: fixed;
+    width: 100%; 
+    height: 45px;
+    border: 0;
+    text-align: right;
+    font-size: 24px;
+    background-color: rgba(164, 201, 175, 0.737);
+    
+    
+}
+header{
+    position: fixed;
+    display:flex;
+    flex-direction: row;
+    height: 90px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.822);
+    font-family: system-ui;
+    font-size: 30px;
+    margin: 0;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    top: 45px;
+}
+.logo{
+    position: absolute;
+    top: 8%;
+    left: 0;
+    width: 200px;
     height: 100px;
     
 
 }
-.characters img{
+.covers img{
     position: relative;
     top: 20%;
     left: 50%;
-    width: 70px;
-    height: 100px;
+    width: 250px;
+    height: 400px;
+    cursor: pointer;
+    
+
+}
+.mainbutton{
+    background-color: aliceblue;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: background-color .3s;
+    cursor:pointer;
+}
+.mainbutton:hover{
+    background-color: rgb(141, 244, 227);
+    
+}
+.bar{
+    position:fixed;
+    
+    top: 50%;
+    left:0%;
+    height: 500px;
+    width: 300px;
+    display:flex;
+    flex-direction: column;
+
+    
+
+}
+.sidebar{
+    position: relative;
+    padding: 20px;
+    margin: 5px 10px;
+    font-size: 28px;
+    font-family: cursive;
+    color: #000;
     
 
 }
 .redes{
-    width: 50px;
+    width: 55px;
     height: 50px;
+    padding: 10px;
 
 }
-.info{
+#films{
     position: relative;
+    left:50%;
+}
+.info{
+    align-items: center;
+    justify-content: center;
     background-color: aliceblue;
+    width: 400px;
+    height: 350px;
+    text-align: center;
 }
 p{
     color: rgb(196, 8, 8);
+}
+footer{
+    position:absolute;
+    display: flex;
+    margin: 0;
+    padding: 15px;
+    background-color: rgb(128, 125, 122);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    bottom: 0;
+    
+    
 }

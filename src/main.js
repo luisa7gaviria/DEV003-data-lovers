@@ -1,15 +1,19 @@
-import { example } from './data.js/'; //importar funciones
-
 import data from './data/ghibli/ghibli.js'; //importar datos
+import  { orderAlphabet }  from './data.js/'; //importar funciones
 
- console.log(example, data); 
+console.log( orderAlphabet ,data); 
 
- const esGhibli = data.films; 
- function mostrarData () {
+const esGhibli = data.films; 
+
+
+function mostrarData () {
+    
     let lista = ''
     for (let i = 0; i< esGhibli.length; i++ ){
       
-      lista += ` <div class="info"> 
+      lista += `  
+      
+      <div class="info">
       <img src= ${esGhibli[i].poster} >
       <p> Título: ${esGhibli[i].title} </p> 
       <p> Fecha de lanzamiento: ${esGhibli[i].release_date} </p>
@@ -22,13 +26,20 @@ import data from './data/ghibli/ghibli.js'; //importar datos
         
         
     }
-    document.getElementById("films").innerHTML = lista;
- }
-   document.getElementById('botonPeliculas').addEventListener("click", () => {
-      mostrarData();
+    
+} 
+mostrarData();      
 
- }); 
 
+   document.querySelector('.boton-Peliculas').addEventListener("click", mostrarData);
+   document.getElementById('botonPeliculas').addEventListener("click", mostrarData);
+   
+
+
+//replantear el uso de esas comillas , averiguo porque tengo cada cosa
+// puedo mostrar los datos solo
+//no sobrecomplicarnos, en principio cumplir los OAs
+//cambiar el idioma
 
     
      

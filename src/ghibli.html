@@ -9,35 +9,55 @@
   </head>
 
   <body> 
+    
+    
     <div>
       <input type="search" class="search" placeholder=" 🔍 Buscar... ">
     </div>
     <header>
-      <a href="index.html"><img class="logo" src="Imágenes/ghiblilogo.png"></a>
+      <a href="ghibli.html"><img class="logo" src="Imágenes/ghiblilogo.png"></a>
       <h1>GHIBLI FNTICS</h1>
+      <nav class="menu">
+        
         <p class="right-header"> Personajes </p> 
         <p class="right-header"> Directores </p> 
         <p class="right-header"> Productores </p> 
         <p class="right-header"> Lugares </p>
+        
+        
+      </nav>
     </header>
 
     <main class="container">
-      <section>
+      <section >
+        <p>Ordenar por:</p>
 
-        <button id="botonPeliculas" class="mainbutton">Películas</button>
+        <select id="desplegar-orden"> 
+          <option value=""></option>
+          <option id="ordenar-rt" >Score</option>
+          <option id = "ordenar-fecha" >Release</option>
+        </select>
 
-        <button id = "botonPersonajes" class="mainbutton">Personajes</button>
-      
       </section>
      
+      <div class="modal">
+        
+        <div id="modal-info">
+          <div class="modal-header"> Datos extrasss
+            <span id="close-modal"> &times;</span>
+        
+          </div>
+        </div>
+           <!-- info adicional de las cards -->
+      </div>
 
       <div id="data-container">
         
         <!-- aqui va la informacion -->
       </div>
-
       
-     <footer>
+    </main>
+    <footer>
        <a href="https://www.facebook.com/GhibliUSA/" target="_blank"><img class="redes" src="Imágenes/Facebook.png" alt="Facebook" ></a>
        <a href="https://www.instagram.com/ghibliusa/" target="_blank"><img class="redes" src="Imágenes/instagram.png" alt="Instagram" ></a>
        <a href="https://www.youtube.com/@studioghibli4734" target="_blank"><img class="redes" src="Imágenes/Youtube.png" alt="Youtube" ></a>
@@ -49,10 +69,7 @@
          <a>Sugerencia</a>
        </div>
       </footer>
-
-    </main>
-
-    
-    <script src="main.js" type="module"></script>
+  
   </body>
+  <script src="main.js" type="module"></script>
 </html>

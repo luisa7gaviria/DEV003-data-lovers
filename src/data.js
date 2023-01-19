@@ -5,18 +5,7 @@ export const orderingBy = (data , key) =>{
    return  b[key] - a[key]
   })  
 
-} 
-//funcion ordenar
-
-  
-
-
-
-
-
-
-
-
+}
 
 
 

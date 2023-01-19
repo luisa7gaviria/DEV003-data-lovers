@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+
 html{
     box-sizing: border-box;  
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 body{
-    
     background-image: url(Imágenes/fulbackground.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -11,92 +14,130 @@ body{
     margin: 0 0 0 0;
     display:flex;
     flex-direction: column;
-   
-
 }
 
-.search{
-    position: fixed;
-    width: 100%; 
-    height: 45px;
-    border: 0;
-    text-align: right;
-    font-size: 24px;
-    background-color: rgba(164, 201, 175, 0.737);
-    
-    
+a{
+    text-decoration:none ; 
 }
-header{
+
+.logo{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 8%;
+    left: 4%;
+    width: 120px;
+    height: 80px;
+}
+
+.top-header{
     position: fixed;
-    display:flex;
-    flex-direction: row;
+    /* display:flex; */
+    /* flex-direction: row; */
+    margin-top: 30px;
     height: 90px;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.822);
     font-family: system-ui;
-    font-size: 30px;
-    margin: 0;
-    padding: 10px;
+    text-align: center;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    top: 45px;
-    
+    /* font-size: 30px;
+    padding: 10px;
+    top: 45px; */  
 }
-.logo{
-    position: absolute;
-    top: 8%;
-    left: 0;
-    width: 200px;
-    height: 100px;
-    
 
-}
-.menu{
-    position: absolute;
-    right: 10% ;
+.top-nav{
+    /* position: relative; */
+    /* right: 10% ; */
+    padding: 1px;
+    margin: 0 auto;
+    height: 5%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    
-    
 }
-.menu p{
-    position:relative;
+
+#nav-title{
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 3px;
+    /* margin: 0; */
+}
+
+h1{
+    position: absolute;
+    line-height: 90%;
+    font-family: 'Sedgwick Ave Display', cursive;
+    color: #145c64;
+    letter-spacing: 10px;
+    word-spacing: 5px;
+}
+
+.menu{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* position:absolute;
     left: 20%;
     color:black;
     margin: 15px;
     font-size: 26px;
     font-family:Cambria ;
     padding: 0 15 ;
-    cursor: pointer;
+    cursor: pointer; */
 }
-.menu p:hover{
+
+.menu a{
+    padding: 0 15px;
+    line-height: 100px;
+    position: relative;
+    text-transform: uppercase;
+    color: #145c64;
+    font-weight: bold;
+}
+
+.menu a:hover{
     color:rgb(52, 43, 226);
     text-decoration: underline;
 }
-section{
-    
+
+.search{
+    position: fixed;
+    width: 100%; 
+    height: 30px;
+    border: 0;
+    text-align: right;
+    font-size: 24px;
+    background-color: rgba(164, 201, 175, 0.737);
+}
+::placeholder{
+    color: rgb(40, 39, 39);
+}
+
+.order{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     width: 270px;
     margin-top : 10%;
-    margin-left: 43%;
+    margin-left: 40%;
     background-color: rgba(240, 248, 255, 0.859);
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 5px;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2),0 8px 25px 0 rgba(0,0,0,0.19);
-
 }
+
 section p{
     text-align: center;
     font-size: 18px;
     font-family: cursive;
-    
 }
+
 select{
-    
     width: 150px;
     height: 25px;;
     border-radius: 10px;
@@ -104,35 +145,41 @@ select{
     font-family: cursive;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2),0 8px 25px 0 rgba(0,0,0,0.19);
     margin: 5px;
-    
 }
+
 select option:checked,
 select option:hover {
   box-shadow: 0 0 10px 100px #000 inset;
 }
+
 select:focus>option:checked {
     background: rgb(142, 243, 224) !important;
   } 
+
 .redes{
     width: 55px;
     height: 50px;
     padding: 10px;
-
 }
+
 #films{
     position: relative;
     left:50%;
 }
-#data-container{
 
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
+#data-container{
+    display: flex;
+    flex-wrap: wrap;
+    /* display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;  */
     gap: 30px;
-    width: 1500px;
-    margin-left: 30vh;
-    margin-top: 80px;
-    margin-bottom: 30px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    /* margin-left: 30vh;
+    margin-bottom: 30px; */
 }
+
 .film-container{ 
     display: grid;
     width: 280px;
@@ -147,14 +194,13 @@ select:focus>option:checked {
     align-items: center;
     justify-content: center;
     justify-items: center;
-    
 }
+
 .film-container h4 , h5{
     margin : 0 0 0 0;
 }
 
 .modal {
-    
      /* Este va permanecer escondido por defecto */
     position: fixed; /* Para que permanezca fijo */
     z-index: 1; 
@@ -162,7 +208,6 @@ select:focus>option:checked {
     top: 30%;
     width: 1000px; 
     height: 500px; 
-    
   }
 
 #modal-info{
@@ -176,18 +221,17 @@ select:focus>option:checked {
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s
-    
 }
+
 .modal-header{      
-    
     width: 100%;
     height: 15%;
     background-image: url(Imágenes/flower.jpg);
     font-size: 50px;
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
 }
+
 .modal span{
     color: white;
     float: right;
@@ -196,9 +240,11 @@ select:focus>option:checked {
     margin-right: 2%;
     cursor: pointer;
 }
+
 .modal span:hover{
     color:#000;
 }
+
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0} 
     to {top:100px; opacity:1}
@@ -210,19 +256,24 @@ select:focus>option:checked {
   }
 
 footer{
-    position:relative; 
-    display: flex;
+    /* position:relative; 
+    display: flex; */
     margin: 0;
-    padding: 15px;
+    /* padding: 1px; */
     background-color: rgb(128, 125, 122);
     color: white;
     justify-content: center;
     align-items: center;
+    text-align: center;
     width: 100%;
-    margin-top: auto; 
-
-    
+    margin-top: 10px; 
 }
+
+footer p{
+    margin: 0;
+}
+
+
 
 /*
 

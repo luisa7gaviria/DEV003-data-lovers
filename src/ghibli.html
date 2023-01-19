@@ -10,40 +10,37 @@
 
   <body> 
     
-    
     <div>
-      <input type="search" class="search" placeholder=" 🔍 Buscar... ">
+      <input type="search" class="search" placeholder=" 🔍 Search... ">
     </div>
-    <header>
-      <a href="ghibli.html"><img class="logo" src="Imágenes/ghiblilogo.png"></a>
+    <header class="top-header">
+      <nav class="top-nav">
+      <div>
+        <a href="ghibli.html"><img class="logo" src="Imágenes/ghiblilogo.png"></a>
+      </div>
+      <div id="nav-title">
       <h1>GHIBLI FNTICS</h1>
-      <nav class="menu">
-        
-        <p class="right-header"> Personajes </p> 
-        <p class="right-header"> Directores </p> 
-        <p class="right-header"> Productores </p> 
-        <p class="right-header"> Lugares </p>
-        
-        
+    </div>
+        <ul class="menu">
+        <li><a href="#">Characters </a></li>
+        <li><a href="#">Directors</a></li>  
+        <li><a href="#">Producers</a> </li>  
+        <li><a href="#">Locations</a> </li> 
+      </ul>
       </nav>
     </header>
 
     <main class="container">
-      <section >
-        <p>Ordenar por:</p>
-
+      <section class="order">
+        <p>Sort by:</p>
         <select id="desplegar-orden"> 
           <option value=""></option>
           <option id="ordenar-rt" >Score</option>
-          <option id = "ordenar-fecha" >Release</option>
+          <option id = "ordenar-fecha" >Release date</option>
         </select>
-
       </section>
-     
-      
-
+    
       <div id="data-container">
-        
         <!-- aqui va la informacion -->
       </div>
       
@@ -54,10 +51,7 @@
        <a href="https://www.youtube.com/@studioghibli4734" target="_blank"><img class="redes" src="Imágenes/Youtube.png" alt="Youtube" ></a>
 
        <div>
-         <a>Política de privacidad</a>
-         <a>Ayuda</a>
-         <a>Términos de uso</a>
-         <a>Sugerencia</a>
+        <p>Data Lovers by: Andrea Flores, Luisa Gaviria, Isabel Román</p>
        </div>
       </footer>
   

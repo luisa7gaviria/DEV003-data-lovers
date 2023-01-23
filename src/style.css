@@ -1,6 +1,6 @@
 html{
-    box-sizing: border-box;  
-    min-height: 100vh;
+    box-sizing: border-box; 
+    
 }
 body{
     
@@ -11,8 +11,6 @@ body{
     margin: 0 0 0 0;
     display:flex;
     flex-direction: column;
-   
-
 }
 
 .search{
@@ -23,9 +21,11 @@ body{
     text-align: right;
     font-size: 24px;
     background-color: rgba(164, 201, 175, 0.737);
-    
-    
 }
+::placeholder{
+    color:#000;
+}
+
 header{
     position: fixed;
     display:flex;
@@ -46,34 +46,70 @@ header{
 .logo{
     position: absolute;
     top: 8%;
-    left: 0;
+    left: 20px;
     width: 200px;
     height: 100px;
     
 
 }
-.menu{
+
+nav{
     position: absolute;
-    right: 10% ;
-    display: flex;
-    justify-content: space-between;
+    max-width: 600px;  
+    margin-left: 65%;
+   
     
     
 }
-.menu p{
-    position:relative;
-    left: 20%;
-    color:black;
-    margin: 15px;
-    font-size: 26px;
-    font-family:Cambria ;
-    padding: 0 15 ;
+.horizontal-menu{
+    list-style: none;
+    display: flex;
+    justify-content: space-around; 
+
+}
+.horizontal-menu > li > p{
+    display: block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 30px;
+    margin-left: 8px;
+    cursor: pointer;
+    
+    
+}
+.horizontal-menu > li > p:hover{
+    background-color: rgba(37, 177, 86, 0.564);
+    text-decoration: underline 3px ;
+}
+.vertical-menu{
+    position: absolute;
+    display: none;
+    list-style-type: '🌿';
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.426);
+    
+   
+}
+.horizontal-menu li:hover .vertical-menu{
+    display: block;
+   
+}
+.vertical-menu > li >p:hover{
+    color:rgb(0, 0, 0);
+    background-color: rgba(233, 233, 233, 0.784);
+    
+}
+.vertical-menu li p {
+    display: block;
+    color:antiquewhite;
+    padding: 15px 15px 15px 20px;
+    border-radius: 10px;
+    font-size: 21px;
+    font-family: cursive;
     cursor: pointer;
 }
-.menu p:hover{
-    color:rgb(52, 43, 226);
-    text-decoration: underline;
-}
+
+
 section{
     
     display: flex;
@@ -81,7 +117,7 @@ section{
     align-items: center;
     width: 270px;
     margin-top : 10%;
-    margin-left: 43%;
+    margin-left: 10%;
     background-color: rgba(240, 248, 255, 0.859);
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -91,7 +127,7 @@ section{
 }
 section p{
     text-align: center;
-    font-size: 18px;
+    font-size: 19px;
     font-family: cursive;
     
 }
@@ -111,12 +147,14 @@ select option:hover {
   box-shadow: 0 0 10px 100px #000 inset;
 }
 select:focus>option:checked {
-    background: rgb(142, 243, 224) !important;
-  } 
+    background: rgba(8, 179, 71, 0.314) !important;
+} 
+
+
 .redes{
-    width: 55px;
-    height: 50px;
-    padding: 10px;
+    width: 60px;
+    height: 55px;
+    padding: 15px;
 
 }
 #films{
@@ -130,84 +168,40 @@ select:focus>option:checked {
     gap: 30px;
     width: 1500px;
     margin-left: 30vh;
-    margin-top: 80px;
+    margin-top: 60px;
     margin-bottom: 30px;
 }
 .film-container{ 
     display: grid;
-    width: 280px;
-    height: 410px;
+    width: 290px;
+    height: 420px;
     text-align: center;
     background-color: rgba(240, 254, 244, 0.685);
     border-top-left-radius: 15px;
     border-bottom-right-radius: 15px;
     font-family: system-ui;
-    /* cursor: pointer; */
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     align-items: center;
-    justify-content: center;
     justify-items: center;
     
 }
 .film-container h4 , h5{
     margin : 0 0 0 0;
 }
-
-.modal {
-    
-     /* Este va permanecer escondido por defecto */
-    position: fixed; /* Para que permanezca fijo */
-    z-index: 1; 
-    left: 25%;
-    top: 30%;
-    width: 1000px; 
-    height: 500px; 
-    
-  }
-
-#modal-info{
-    background-color: #fefefe;
-    margin: 0; 
-    border: 1px solid #888;
-    width: 100%; 
-    height: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
+.film-container h3{
+    margin: 0;
+}
+.see-more{
+    width: 80px;
+    height: 30px;
+    border: 2px solid gray;
+    cursor:pointer;
+    background-color: rgba(164, 201, 175, 0.737);
+}
+.see-more:hover{
+    background-color: rgb(91, 255, 119);
     
 }
-.modal-header{      
-    
-    width: 100%;
-    height: 15%;
-    background-image: url(Imágenes/flower.jpg);
-    font-size: 50px;
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
-}
-.modal span{
-    color: white;
-    float: right;
-    font-size: 50px;
-    font-weight: bold;
-    margin-right: 2%;
-    cursor: pointer;
-}
-.modal span:hover{
-    color:#000;
-}
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:100px; opacity:1}
-  }
-  
-  @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:100px; opacity:1}
-  }
 
 footer{
     position:relative; 
@@ -219,14 +213,4 @@ footer{
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: auto; 
-
-    
 }
-
-/*
-
-    Modal, mirar cómo vamos a mostrar el resto de la información
-
-    
-/*

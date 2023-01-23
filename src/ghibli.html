@@ -12,35 +12,51 @@
     
     
     <div>
-      <input type="search" class="search" placeholder=" 🔍 Buscar... ">
+      <input type="search" id="search-input" class="search" placeholder=" 🔍 Search... ">
     </div>
     <header>
       <a href="ghibli.html"><img class="logo" src="Imágenes/ghiblilogo.png"></a>
       <h1>GHIBLI FNTICS</h1>
+
       <nav class="menu">
-        
-        <p class="right-header"> Personajes </p> 
-        <p class="right-header"> Directores </p> 
-        <p class="right-header"> Productores </p> 
-        <p class="right-header"> Lugares </p>
-        
+
+        <ul class="horizontal-menu">
+
+          <li> <p>Director</p>
+            <ul id="list-director" class="vertical-menu">
+
+              <li id="director-h" ><p>Hayao Miyazaki</p></li>
+              <li id="director-i" ><p>Isao Takahata</p> </li>
+              <li id="directors" ><p> Other directors</p></li>
+             
+            </ul>
+          </li>
+
+            <li> <p>Producer</p> 
+              <ul id="list-prod" class="vertical-menu">
+
+                <li id="producer-t" ><p>Toshio Susuki</p> </li>
+                <li id="producers" ><p>Other Producers</p> </li>
+              
+              </ul>
+          </li>
+
+        </ul>
         
       </nav>
     </header>
 
     <main class="container">
-      <section >
-        <p>Ordenar por:</p>
+      <section id="select-orden-films">
+        <p>Order by:</p>
 
         <select id="desplegar-orden"> 
-          <option value=""></option>
-          <option id="ordenar-rt" >Score</option>
-          <option id = "ordenar-fecha" >Release</option>
+          <option disabled="" selected="" value=""></option>
+          <option id="ordenar-rt" value="Score">🍃 Score</option>
+          <option id = "ordenar-fecha" value="Release" >🍃 Release</option>
         </select>
 
       </section>
-     
-      
 
       <div id="data-container">
         
@@ -54,10 +70,10 @@
        <a href="https://www.youtube.com/@studioghibli4734" target="_blank"><img class="redes" src="Imágenes/Youtube.png" alt="Youtube" ></a>
 
        <div>
-         <a>Política de privacidad</a>
-         <a>Ayuda</a>
-         <a>Términos de uso</a>
-         <a>Sugerencia</a>
+         <a>Privacy Policy</a>
+         <a>Help</a>
+         <a>Terms of use</a>
+         <a>Suggestion</a>
        </div>
       </footer>
   

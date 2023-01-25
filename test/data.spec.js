@@ -1,23 +1,18 @@
-import { example, anotherExample } from '../src/data.js';
+import { directorStat } from '../src/data.js';
 
 
-describe('example', () => {
-  it('is a function', () => {
-    expect(typeof example).toBe('function');
+describe('directorStat', () => {
+  it('should be a function', () => {
+    expect(typeof directorStat).toBe('function');
   });
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
-  });
-});
-
-
-describe('anotherExample', () => {
-  it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
+  it('should return 65 for 13 and 20 ', () => {
+    expect(directorStat(13 , 20)).toBe(65);
   });
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
+  it('should return NaN for "ghibli" and 20' , () => {
+    expect(directorStat("ghibli" , 20)).toBe(NaN);
   });
 });
+
+

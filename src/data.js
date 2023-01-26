@@ -1,30 +1,27 @@
 export function orderingBy (data , key){  
-
-  return [... data].sort((a, b) => {                      
-    return  b[key] - a[key]
-  })  
-
+  const set = data.sort((a, b) => { return b[key] - a[key] });
+  return set
 } 
 
-export const filteringD = (data , keyvalue) => {
+export const filteringD = (data , key ,keyvalue) => {
   const filtered = data.filter(movie => {
-    if(movie.director === keyvalue ){
+    if(movie[key] === keyvalue ){
       return true
     } 
     if( keyvalue === 'Others' ){ 
-      return movie.director !== 'Hayao Miyazaki' && 'Isao Takahata' 
+      return movie[key] !== 'Hayao Miyazaki' && 'Isao Takahata' 
     }
   })
   return filtered
 }
 
-export const filteringP = (data , keyvalue) => {
+export const filteringP = (data , key , keyvalue) => {
   const filteredP = data.filter(movie => {
-    if(movie.producer === keyvalue ){
+    if(movie[key] === keyvalue ){
       return true
     } 
     if( keyvalue === 'Others' ){ 
-      return movie.producer !== 'Toshio Suzuki' 
+      return movie[key] !== 'Toshio Suzuki' 
     }
   })
   return filteredP
@@ -42,6 +39,9 @@ export const directorStat = (ratingData , data) => {
   return result
   
 }
+
+
+
 
 
 

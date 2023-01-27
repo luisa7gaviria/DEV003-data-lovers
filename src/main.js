@@ -1,5 +1,5 @@
 import data from './data/ghibli/ghibli.js'; //importar datos
-import { orderingBy, filteringD, filteringP , searchInput , directorStat} from './data.js';
+import { orderingBy, filteringD, filteringP , searchInput , directorStat } from './data.js';
 
 const ghibliData = data.films;
 
@@ -16,14 +16,73 @@ function drawFilms (filmsArray) {
       <img src="${film.poster}">
       <h4> 📆 ${film.release_date} </h4>
       <h5> ⭐ ${film.rt_score} </h5>
-      
+      <button id="${film.id}" class="see-more-button" > See more </button> 
 
     </div> `;
          
   })
   document.getElementById('data-container').innerHTML = movies;
 }
-drawFilms(ghibliData);
+printMore(drawFilms(ghibliData));
+
+//función para crear el evento y crear los contenedores de informacion adicional
+function printMore() {
+const setbutton = document.querySelectorAll('.see-more-button');
+setbutton.forEach(button => {
+  button.addEventListener("click" , e =>{
+    const buttonId = e.target.getAttribute('id')                      
+    const matchId = ghiblId(ghibliData , buttonId)
+    let seeMore = '';
+    const drawPeople =  matchId.people 
+    drawPeople.forEach(el => {
+      seeMore += `
+      <div class="cha-container"> 
+      <h2> Characters </h2>
+      <img src=" ${el.img} ">
+      <h4> ${el.name} </h4>
+      <p> Age: ${el.age} Gender: ${el.gender} <p>
+    </div>
+
+      `       
+    })
+        
+    const drawLocation =  matchId.locations 
+    drawLocation.forEach(el => {
+      seeMore += `
+      <div class="loc-container"> 
+        <h2> Locations </h2>
+        <img src=" ${el.img} ">
+        <h4> ${el.name} </h4>
+        <h4> ${el.climate} </h4>
+      </div>
+
+      `
+    }) 
+    const drawVehicles =  matchId.vehicles 
+    drawVehicles.forEach(el => {
+      seeMore += `
+     <div class="veh-container"> 
+        <h2> Vehicles </h2>
+        <img src=" ${el.img} ">
+        <h4> ${el.name} </h4>
+        <h5> ${el.description} </h5>
+      </div>
+
+     `    
+    })
+    document.getElementById('data-container').innerHTML = seeMore 
+  })
+})
+}
+
+//función donde hago match entre los datos y el id de cada película
+const ghiblId = (data , id) => {
+  for(let i =0 ; i < data.length ; i++)
+    if(data[i].id === id){
+    
+      return data[i]
+    }
+}
 
 //mostrando los datos ordenados
 document.getElementById('desplegar-orden').addEventListener("change" , () =>{
@@ -31,23 +90,26 @@ document.getElementById('desplegar-orden').addEventListener("change" , () =>{
   const selectScr = document.getElementById('ordenar-rt').value;
   const selectRel = document.getElementById('ordenar-fecha').value;
 
-  if(selectOrden === selectScr){ drawFilms(orderingBy(ghibliData , 'rt_score')) , showDirectorStat() }
-  if(selectOrden === selectRel){ drawFilms(orderingBy(ghibliData , 'release_date')) }
+  if(selectOrden === selectScr){ printMore(drawFilms(orderingBy(ghibliData , 'rt_score'))) , showDirectorStat() }
+  if(selectOrden === selectRel){ printMore(drawFilms(orderingBy(ghibliData , 'release_date'))) }
 })
 
 
 //evento y  funcion que pinta los directores filtrados
 
 document.getElementById('director-h').addEventListener("click" , ()=>{
-  drawFilms(filteringD(ghibliData , 'Hayao Miyazaki'));
+  const hayaoA = drawFilms(filteringD(ghibliData , 'director', 'Hayao Miyazaki'));
+  printMore(hayaoA)
   document.getElementById('select-orden-films').style.opacity = 0;
 });
 document.getElementById('director-i').addEventListener("click" , ()=>{
-  drawFilms(filteringD(ghibliData , 'Isao Takahata'));
+  const isaoA =drawFilms(filteringD(ghibliData , 'director' , 'Isao Takahata'));
+  printMore(isaoA)
   document.getElementById('select-orden-films').style.opacity = 0;
 });
 document.getElementById('directors').addEventListener("click" , ()=>{
-  drawFilms(filteringD(ghibliData , 'Others'));
+  const otherA = drawFilms(filteringD(ghibliData , 'director' , 'Others'));
+  printMore(otherA)
   document.getElementById('select-orden-films').style.opacity = 0;
 });
   
@@ -56,12 +118,14 @@ document.getElementById('directors').addEventListener("click" , ()=>{
 // evento y funcion que pinta los productores filtrados
 
 document.getElementById('producer-t').addEventListener("click" , ()=>{
-  drawFilms(filteringP(ghibliData , 'Toshio Suzuki'))
+  const filteredT =drawFilms(filteringP(ghibliData , 'producer' , 'Toshio Suzuki'))
+  printMore(filteredT)
   document.getElementById('select-orden-films').style.opacity = 0;
 });
 document.getElementById('producers').addEventListener("click" , ()=>{
   document.getElementById('select-orden-films').style.opacity = 0;
-  drawFilms(filteringP(ghibliData , 'Others'));
+  const filteredO =drawFilms(filteringP(ghibliData , 'producer' , 'Others'));
+  printMore(filteredO)
 });
 
 
@@ -70,7 +134,7 @@ document.getElementById('producers').addEventListener("click" , ()=>{
 document.getElementById('search-input').addEventListener("keyup" , (e) =>{
   const input = e.target.value
   const result = searchInput(input , ghibliData)
-  drawFilms(result)
+  printMore(drawFilms(result))
   
 })
 
@@ -96,13 +160,3 @@ function showDirectorStat (){
   })
   
 }
-
-//con esta función para obtener los personajes tengo que especificar el índice
-//creo que le puedo pasar el arreglo recorrido a getcha y tengo los psjs de cada uno
-
-// const getcha = () =>{
-//   for( let i = 0; i < ghibliData.length ; i++ ){
-//     return ghibliData[10].people 
-//   }
-// }
-// console.log(getcha(ghibliData))

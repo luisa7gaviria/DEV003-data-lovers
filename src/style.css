@@ -133,7 +133,7 @@ section p{
 select{
     
     width: 150px;
-    height: 25px;;
+    height: 25px;
     border-radius: 10px;
     font-size: 19px;
     font-family: cursive;
@@ -208,7 +208,7 @@ select:focus>option:checked {
     width: 1500px;
     margin-left: 30vh;
     margin-top: 60px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .film-container{ 
     display: grid;
@@ -230,6 +230,56 @@ select:focus>option:checked {
 .film-container h3{
     margin: 0;
 }
+.see-more-button{
+    border: 3px transparent;
+    border-radius: 10px ;
+    border-image: linear-gradient(to left, #14ceea 0%, #e95a93 100%) 1;
+    border-style:solid ;
+    background: rgb(243, 243, 243);
+    cursor: pointer;
+
+}
+.cha-container , .loc-container, .veh-container{
+    
+    display: grid;
+    width: 290px;
+    height: 420px;
+    text-align: center;
+    background-color: rgba(240, 254, 244, 0.685);
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-family: system-ui;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    justify-items: center;
+    align-items: center;
+}
+.imgc{
+    width: 200px;
+    height: 240px;
+  
+}
+.cha-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.loc-container img{
+    height: 230px;
+    width: 230px;
+    
+}
+.veh-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.goback{
+    display: none;
+    position: relative;
+    left: 45%;
+    
+}
 footer{
     position:relative; 
     display: flex;
@@ -249,4 +299,170 @@ footer{
 }
 .credit a:hover{
     text-decoration: underline whitesmoke;
+}
+@media ( max-width: 400px ) {
+    
+    .container > footer{
+        width: 400px;
+    }
+    .search{
+        height: 40px;
+    }
+    ::placeholder{
+        font-size: 20px;
+    }
+    header{
+        font-size: 20px;
+        height: 70px;
+        top:39px; 
+    }
+    header  h1{
+        margin-bottom: 71px;
+        position: absolute;
+    }
+    nav{
+        width: 300px;
+        height: 100px;
+        display: grid;
+        align-items: center;
+        grid-auto-flow: column;
+        justify-items: center;
+        margin: unset;
+        top: 10px;
+        left:40px
+    }
+    .horizontal-menu > li >p {
+        font-size: 18px;
+        margin-top: 23px;
+        padding: 6px 10px;
+
+    }  
+    .horizontal-menu > li >p:hover{
+        text-decoration: underline 2px ;
+    }
+    .vertical-menu{
+
+        width: 100px;
+    }
+    .vertical-menu li p{
+        font-size: 15px;
+    }
+    .logo{
+        display:  none;
+        
+    }
+    #data-container{
+        width: 400px;
+        margin-left: 30px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        display:grid;
+        grid-template-columns: 1fr 1fr ; 
+        gap: 30px;
+    }
+    .film-container{
+        display: grid;
+        width: 160px;
+        height: 220px;
+        font-size: 10px;
+    }
+    .film-container > img {
+        width: 100px;
+        height: 145px;     
+    }
+    .cha-container , .loc-container, .veh-container{
+        display: grid;
+        width: 160px;
+        height: 220px;
+        font-size: 10px;
+    }
+    .imgc{
+        width: 120px;
+        height: 95px;
+      
+    }
+    .loc-container img{
+        height: 100px;
+        width: 130px;
+        object-fit: cover;
+        
+    }
+    .see-more-button{
+        width: 65px;
+        height: 17px;
+        font-size: 10px;
+        border: 2px transparent;
+        border-image: linear-gradient(to left, #14ceea 0%, #e95a93 100%) 1;
+        border-style:solid ;
+    }
+    section{
+        width: 140px;
+        height: 35px;
+        margin-top: 145px;
+    }
+    section > p{
+        font-size: 15px;
+    }
+    select{
+        background-color: transparent;
+        border: none;
+        width: 90px;
+        height: 20px;
+        font-size: 13px;
+    }
+    .cha-container , .loc-container, .veh-container{
+
+        display: grid;
+        width: 160px;
+        height: 220px;
+        font-size: 10px;
+        
+    }
+    .goback{
+        width: 150px;
+        height: 150px;
+        left: 40%;
+    }
+    footer{
+        
+        height: 30px;
+        padding: 28px;
+    }
+    .redes{
+        width: 33px;
+        height: 31px;
+        padding: 10px;
+    }
+    .credit{
+        text-align: end ; 
+    }
+    .credit a{
+        font-size: 14px;
+    }
+    .aditionalStat{
+        height: 50px;
+        width: 345px;
+        margin-left: 35px;
+        margin-top: 15px;
+    }
+    #stat{
+        height: 46px;
+        width: 290px;
+        margin-top: 0;
+        margin-left: 27px;
+
+    }
+    #stat > h3{
+        font-size: 17px;
+    }
+    #stat > h4{
+        font-size: 12px;
+        margin: 0 0 0 0;
+    }
+    .aditionalStat span{
+        
+        top: 200px;
+        left: 40px;
+        
+    }
 }

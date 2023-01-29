@@ -2,7 +2,7 @@ import data from './data/ghibli/ghibli.js'; //importar datos
 import { orderingBy, filteringD, filteringP , searchInput , directorStat } from './data.js';
 
 const ghibliData = data.films;
-
+const backButton = document.querySelector('.goback')
 
 // funcion para pintar datos 
 function drawFilms (filmsArray) {               
@@ -38,7 +38,9 @@ setbutton.forEach(button => {
       seeMore += `
       <div class="cha-container"> 
       <h2> Characters </h2>
+      <div class="imgc">
       <img src=" ${el.img} ">
+      </div>
       <h4> ${el.name} </h4>
       <p> Age: ${el.age} Gender: ${el.gender} <p>
     </div>
@@ -51,9 +53,11 @@ setbutton.forEach(button => {
       seeMore += `
       <div class="loc-container"> 
         <h2> Locations </h2>
+        <div class="img">
         <img src=" ${el.img} ">
+        </div>
         <h4> ${el.name} </h4>
-        <h4> ${el.climate} </h4>
+        <h4> Climate : ${el.climate} </h4>
       </div>
 
       `
@@ -63,7 +67,9 @@ setbutton.forEach(button => {
       seeMore += `
      <div class="veh-container"> 
         <h2> Vehicles </h2>
+        <div class="imgc">
         <img src=" ${el.img} ">
+        </div>
         <h4> ${el.name} </h4>
         <h5> ${el.description} </h5>
       </div>
@@ -71,6 +77,9 @@ setbutton.forEach(button => {
      `    
     })
     document.getElementById('data-container').innerHTML = seeMore 
+    backButton.style.display = "block"
+    document.getElementById('select-orden-films').style.opacity = 0; 
+    document.getElementById('desplegar-orden').style.display = "none"
   })
 })
 }
@@ -90,8 +99,14 @@ document.getElementById('desplegar-orden').addEventListener("change" , () =>{
   const selectScr = document.getElementById('ordenar-rt').value;
   const selectRel = document.getElementById('ordenar-fecha').value;
 
-  if(selectOrden === selectScr){ printMore(drawFilms(orderingBy(ghibliData , 'rt_score'))) , showDirectorStat() }
-  if(selectOrden === selectRel){ printMore(drawFilms(orderingBy(ghibliData , 'release_date'))) }
+  if(selectOrden === selectScr){ 
+    printMore(drawFilms(orderingBy(ghibliData , 'rt_score'))) , showDirectorStat() 
+    backButton.style.display = "block"
+  }
+  if(selectOrden === selectRel){ 
+    printMore(drawFilms(orderingBy(ghibliData , 'release_date')))
+    backButton.style.display = "block"
+  }
 })
 
 
@@ -101,16 +116,19 @@ document.getElementById('director-h').addEventListener("click" , ()=>{
   const hayaoA = drawFilms(filteringD(ghibliData , 'director', 'Hayao Miyazaki'));
   printMore(hayaoA)
   document.getElementById('select-orden-films').style.opacity = 0;
+  backButton.style.display = "block"
 });
 document.getElementById('director-i').addEventListener("click" , ()=>{
   const isaoA =drawFilms(filteringD(ghibliData , 'director' , 'Isao Takahata'));
   printMore(isaoA)
   document.getElementById('select-orden-films').style.opacity = 0;
+  backButton.style.display = "block"
 });
 document.getElementById('directors').addEventListener("click" , ()=>{
   const otherA = drawFilms(filteringD(ghibliData , 'director' , 'Others'));
   printMore(otherA)
   document.getElementById('select-orden-films').style.opacity = 0;
+  backButton.style.display = "block"
 });
   
  
@@ -121,11 +139,13 @@ document.getElementById('producer-t').addEventListener("click" , ()=>{
   const filteredT =drawFilms(filteringP(ghibliData , 'producer' , 'Toshio Suzuki'))
   printMore(filteredT)
   document.getElementById('select-orden-films').style.opacity = 0;
+  backButton.style.display = "block"
 });
 document.getElementById('producers').addEventListener("click" , ()=>{
   document.getElementById('select-orden-films').style.opacity = 0;
   const filteredO =drawFilms(filteringP(ghibliData , 'producer' , 'Others'));
   printMore(filteredO)
+  backButton.style.display = "block"
 });
 
 
@@ -135,6 +155,7 @@ document.getElementById('search-input').addEventListener("keyup" , (e) =>{
   const input = e.target.value
   const result = searchInput(input , ghibliData)
   printMore(drawFilms(result))
+  backButton.style.display = "block"
   
 })
 

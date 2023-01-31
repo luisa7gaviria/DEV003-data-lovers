@@ -27,15 +27,15 @@ printMore(drawFilms(ghibliData));
 
 //función para crear el evento y crear los contenedores de informacion adicional
 function printMore() {
-const setbutton = document.querySelectorAll('.see-more-button');
-setbutton.forEach(button => {
-  button.addEventListener("click" , e =>{
-    const buttonId = e.target.getAttribute('id')                      
-    const matchId = ghiblId(ghibliData , buttonId)
-    let seeMore = '';
-    const drawPeople =  matchId.people 
-    drawPeople.forEach(el => {
-      seeMore += `
+  const setbutton = document.querySelectorAll('.see-more-button');
+  setbutton.forEach(button => {
+    button.addEventListener("click" , e =>{
+      const buttonId = e.target.getAttribute('id')                      
+      const matchId = ghiblId(ghibliData , buttonId)
+      let seeMore = '';
+      const drawPeople =  matchId.people 
+      drawPeople.forEach(el => {
+        seeMore += `
       <div class="cha-container"> 
       <h2> Characters </h2>
       <div class="imgc">
@@ -46,11 +46,11 @@ setbutton.forEach(button => {
     </div>
 
       `       
-    })
+      })
         
-    const drawLocation =  matchId.locations 
-    drawLocation.forEach(el => {
-      seeMore += `
+      const drawLocation =  matchId.locations 
+      drawLocation.forEach(el => {
+        seeMore += `
       <div class="loc-container"> 
         <h2> Locations </h2>
         <div class="img">
@@ -61,10 +61,10 @@ setbutton.forEach(button => {
       </div>
 
       `
-    }) 
-    const drawVehicles =  matchId.vehicles 
-    drawVehicles.forEach(el => {
-      seeMore += `
+      }) 
+      const drawVehicles =  matchId.vehicles 
+      drawVehicles.forEach(el => {
+        seeMore += `
      <div class="veh-container"> 
         <h2> Vehicles </h2>
         <div class="imgc">
@@ -75,13 +75,13 @@ setbutton.forEach(button => {
       </div>
 
      `    
+      })
+      document.getElementById('data-container').innerHTML = seeMore 
+      backButton.style.display = "block"
+      document.getElementById('select-orden-films').style.opacity = 0; 
+      document.getElementById('desplegar-orden').style.display = "none"
     })
-    document.getElementById('data-container').innerHTML = seeMore 
-    backButton.style.display = "block"
-    document.getElementById('select-orden-films').style.opacity = 0; 
-    document.getElementById('desplegar-orden').style.display = "none"
   })
-})
 }
 
 //función donde hago match entre los datos y el id de cada película

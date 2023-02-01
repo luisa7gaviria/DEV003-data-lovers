@@ -1,5 +1,6 @@
 import data from './data/ghibli/ghibli.js'; //importar datos
-import { orderingBy, filteringD, filteringP , searchInput , directorStat } from './data.js';
+
+import { orderingBy, filteringDP, searchInput , directorStat } from './data.js';
 
 const ghibliData = data.films;
 const backButton = document.querySelector('.goback')
@@ -78,8 +79,7 @@ function printMore() {
       })
       document.getElementById('data-container').innerHTML = seeMore 
       backButton.style.display = "block"
-      document.getElementById('select-orden-films').style.opacity = 0; 
-      document.getElementById('desplegar-orden').style.display = "none"
+      hideSelect()
     })
   })
 }
@@ -96,66 +96,55 @@ const ghiblId = (data , id) => {
 //mostrando los datos ordenados
 document.getElementById('desplegar-orden').addEventListener("change" , () =>{
   const selectOrden = document.getElementById('desplegar-orden').value;
-  const selectScr = document.getElementById('ordenar-rt').value;
-  const selectRel = document.getElementById('ordenar-fecha').value;
-
-  if(selectOrden === selectScr){ 
-    printMore(drawFilms(orderingBy(ghibliData , 'rt_score'))) , showDirectorStat() 
-    backButton.style.display = "block"
+  
+  if(selectOrden === 'Score'){
+    const rtOrdered = drawFilms(orderingBy(ghibliData , 'rt_score'))
+    printMore(rtOrdered)
+    showDirectorStat()
   }
-  if(selectOrden === selectRel){ 
-    printMore(drawFilms(orderingBy(ghibliData , 'release_date')))
-    backButton.style.display = "block"
+  if(selectOrden === 'Release'){
+    const relOrdered = drawFilms(orderingBy(ghibliData , 'release_date'))
+    printMore(relOrdered)
   }
+  backButton.style.display = "block"
 })
 
+//cuando vayamos a otra parte de la página ocultamos el select
+function hideSelect(){
+  document.getElementById('select-orden-films').style.opacity = 0 
+  document.getElementById('desplegar-orden').style.display = "none"
+}
 
-//evento y  funcion que pinta los directores filtrados
-
-document.getElementById('director-h').addEventListener("click" , ()=>{
-  const hayaoA = drawFilms(filteringD(ghibliData , 'director', 'Hayao Miyazaki'));
-  printMore(hayaoA)
-  document.getElementById('select-orden-films').style.opacity = 0;
-  backButton.style.display = "block"
-});
-document.getElementById('director-i').addEventListener("click" , ()=>{
-  const isaoA =drawFilms(filteringD(ghibliData , 'director' , 'Isao Takahata'));
-  printMore(isaoA)
-  document.getElementById('select-orden-films').style.opacity = 0;
-  backButton.style.display = "block"
-});
-document.getElementById('directors').addEventListener("click" , ()=>{
-  const otherA = drawFilms(filteringD(ghibliData , 'director' , 'Others'));
-  printMore(otherA)
-  document.getElementById('select-orden-films').style.opacity = 0;
-  backButton.style.display = "block"
-});
+//evento y  funcion que pinta los filtros
+document.querySelectorAll('.dic-to-filter').forEach(el =>{
+  el.addEventListener("click" , e => {
+    const dicFilterList = e.target.getAttribute('value')
+    printMore(drawFilms((filteringDP(ghibliData, 'director' , dicFilterList))))
+    backButton.style.display = "block"
+    hideSelect()
+  })
   
- 
+})
 
-// evento y funcion que pinta los productores filtrados
-
-document.getElementById('producer-t').addEventListener("click" , ()=>{
-  const filteredT =drawFilms(filteringP(ghibliData , 'producer' , 'Toshio Suzuki'))
-  printMore(filteredT)
-  document.getElementById('select-orden-films').style.opacity = 0;
-  backButton.style.display = "block"
-});
-document.getElementById('producers').addEventListener("click" , ()=>{
-  document.getElementById('select-orden-films').style.opacity = 0;
-  const filteredO =drawFilms(filteringP(ghibliData , 'producer' , 'Others'));
-  printMore(filteredO)
-  backButton.style.display = "block"
-});
-
+document.querySelectorAll('.prod-to-filter').forEach(el =>{
+  el.addEventListener("click" , e => {
+    const prodFilterList = e.target.getAttribute('value')
+    printMore(drawFilms((filteringDP(ghibliData , 'producer' , prodFilterList))))
+    backButton.style.display = "block"
+    hideSelect()
+    
+  })
+  
+  
+})
 
 //  funcion de buscar y llamado en el input
-
 document.getElementById('search-input').addEventListener("keyup" , (e) =>{
   const input = e.target.value
   const result = searchInput(input , ghibliData)
   printMore(drawFilms(result))
   backButton.style.display = "block"
+  hideSelect()
   
 })
 

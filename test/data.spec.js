@@ -1,4 +1,4 @@
-import { orderingBy , filteringD , directorStat, filteringP ,searchInput } from '../src/data.js';
+import { orderingBy , directorStat ,searchInput, filteringDP } from '../src/data.js';
 
 
 describe('orderingBy', () => {
@@ -12,31 +12,17 @@ describe('orderingBy', () => {
 
 });
 
-describe('filteringD' , () => {
+describe('filteringDP' , () => {
   it('should be a function', () => {
-    expect(typeof filteringD).toBe('function');
+    expect(typeof filteringDP).toBe('function');
   });
 
   it('should return director named jhon', () =>{
-    expect(filteringD([{director : 'joseph' , age : 5} , {director: 'jhon' , age: '2'} , {director: 'joseph' , age: '35'} ] , 'director' , 'jhon')).toEqual([ {director:'jhon' , age: '2'}]);
+    expect(filteringDP([{director : 'joseph' , age : 5} , {director: 'jhon' , age: '2'} , {director: 'joseph' , age: '35'} ] , 'director' , 'jhon')).toEqual([ {director:'jhon' , age: '2'}]);
   });
 
   it('should return [] when theres no match ' , () =>{
-    expect(filteringD([{type: 'air' } , {type: 'earth'}] , 'type' , 'water')).toEqual([]);
-  });
-});
-
-describe('filteringP' , () => {
-  it('should be a function', () => {
-    expect(typeof filteringP).toBe('function');
-  });
-
-  it('should return girls named maria', () =>{
-    expect(filteringP([{name : 'maria' , age : '25'} , {name: 'naty' , age: '12'} , {name: 'maria' , age: '6'} ] , 'name' , 'maria')).toEqual([ {name : 'maria' , age : '25'} , {name: 'maria' , age: '6'} ]);
-  });
-
-  it('should return [] when theres no match ' , () =>{
-    expect(filteringP([{material: 'plastic' } , {material: 'resine'}] , 'material' , 'gum')).toEqual([]);
+    expect(filteringDP([{type: 'air' } , {type: 'earth'}] , 'type' , 'water')).toEqual([]);
   });
 });
 

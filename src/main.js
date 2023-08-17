@@ -1,6 +1,6 @@
 import data from './data/ghibli/ghibli.js'; //importar datos
 
-import { orderingBy, filteringDP, searchInput , directorStat } from './data.js';
+import { orderingBy, filteringDP, searchInput , scoreStat } from './data.js';
 
 const ghibliData = data.films;
 const backButton = document.querySelector('.goback')
@@ -24,10 +24,10 @@ function drawFilms (filmsArray) {
   })
   document.getElementById('data-container').innerHTML = movies;
 }
-printMore(drawFilms(ghibliData));
+drawFilms(ghibliData);
 
 //función para crear el evento y crear los contenedores de informacion adicional
-function printMore() {
+
   const setbutton = document.querySelectorAll('.see-more-button');
   setbutton.forEach(button => {
     button.addEventListener("click" , e =>{
@@ -82,7 +82,7 @@ function printMore() {
       hideSelect()
     })
   })
-}
+
 
 //función donde hago match entre los datos y el id de cada película
 const ghiblId = (data , id) => {
@@ -98,13 +98,13 @@ document.getElementById('desplegar-orden').addEventListener("change" , () =>{
   const selectOrden = document.getElementById('desplegar-orden').value;
   
   if(selectOrden === 'Score'){
-    const rtOrdered = drawFilms(orderingBy(ghibliData , 'rt_score'))
-    printMore(rtOrdered)
+    drawFilms(orderingBy(ghibliData , 'rt_score'))
+    
     showDirectorStat()
   }
   if(selectOrden === 'Release'){
-    const relOrdered = drawFilms(orderingBy(ghibliData , 'release_date'))
-    printMore(relOrdered)
+    drawFilms(orderingBy(ghibliData , 'release_date'))
+
   }
   backButton.style.display = "block"
 })
@@ -119,7 +119,7 @@ function hideSelect(){
 document.querySelectorAll('.dic-to-filter').forEach(el =>{
   el.addEventListener("click" , e => {
     const dicFilterList = e.target.getAttribute('value')
-    printMore(drawFilms((filteringDP(ghibliData, 'director' , dicFilterList))))
+    drawFilms((filteringDP(ghibliData, 'director' , dicFilterList)))
     backButton.style.display = "block"
     hideSelect()
   })
@@ -129,7 +129,7 @@ document.querySelectorAll('.dic-to-filter').forEach(el =>{
 document.querySelectorAll('.prod-to-filter').forEach(el =>{
   el.addEventListener("click" , e => {
     const prodFilterList = e.target.getAttribute('value')
-    printMore(drawFilms((filteringDP(ghibliData , 'producer' , prodFilterList))))
+    drawFilms((filteringDP(ghibliData , 'producer' , prodFilterList)))
     backButton.style.display = "block"
     hideSelect()
     
@@ -142,8 +142,7 @@ document.querySelectorAll('.prod-to-filter').forEach(el =>{
 document.getElementById('search-input').addEventListener("keyup" , (e) =>{
   const input = e.target.value
   const result = searchInput(input , ghibliData)
-  printMore(drawFilms(result))
-  backButton.style.display = "block"
+  drawFilms(result)
   hideSelect()
   
 })
@@ -159,7 +158,7 @@ function showDirectorStat (){
   }).length
   percent += `
   <h3> Did you know? </h3>
-  <h4> ${directorStat(ratinglength , datalength )} % of the movies have a score higher than 90 ⭐ </h4>
+  <h4> ${scoreStat(ratinglength , datalength )} % of the movies have a score higher than 90 ⭐ </h4>
   ` 
   document.getElementById('stat').innerHTML = percent
   document.querySelector('.aditionalStat').style.display = "block" 

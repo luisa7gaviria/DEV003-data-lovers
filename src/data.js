@@ -11,18 +11,3 @@ export const searchInput = ( text , data ) => {
 }
 
 export const scoreStat = (ratingData , data) =>  Math.round((ratingData / data ) * 100 )
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,11 +1,7 @@
 export const orderingBy = (data , key) => data.sort((a, b) => { return b[key] - a[key] });
 
 export const filteringDP = (data , key ,keyvalue) => {
-  return data.filter(movie => {
-    if(movie[key] === keyvalue ){
-      return true
-    } 
-  })
+  return data.filter(movie => movie[key] === keyvalue )
 }
 
 export const searchInput = ( text , data ) => {     

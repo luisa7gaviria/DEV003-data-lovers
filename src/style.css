@@ -21,9 +21,9 @@ body{
     text-align: center;
     font-size: 24px;
     background-color: rgba(164, 201, 175, 0.737);
-}
-::placeholder{
-    color:#000;
+    &::placeholder {
+        color: black
+    }
 }
 header{
     position: fixed;
@@ -48,9 +48,7 @@ header{
     top: 5px;
     left: 20px;
     width: 190px;
-    height: 90px;
-    
-
+    height: 90px; 
 }
 nav{
     position: absolute;
@@ -73,12 +71,10 @@ nav{
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 1px;
-    
-    
-}
-.horizontal-menu > li > p:hover{
-    background-color: rgba(37, 177, 86, 0.564);
+    &:hover {
+        background-color: rgba(64, 187, 203, 0.564);
     text-decoration: underline 3px ;
+    } 
 }
 .vertical-menu{
     position: absolute;
@@ -86,17 +82,11 @@ nav{
     list-style-type: '🌿';
     width: 200px;
     background-color: rgba(0, 0, 0, 0.426);
-    
    
 }
 .horizontal-menu li:hover .vertical-menu{
     display: block;
    
-}
-.vertical-menu > li >p:hover{
-    color:rgb(0, 0, 0);
-    background-color: rgba(233, 233, 233, 0.784);
-    
 }
 .vertical-menu li p {
     display: block;
@@ -107,6 +97,10 @@ nav{
     font-family: cursive;
     cursor: pointer;
     letter-spacing: 1px;
+    &:hover {
+        color:rgb(0, 0, 0);
+        background-color: rgba(233, 233, 233, 0.784);
+    }
 }
 
 section{
@@ -159,7 +153,6 @@ select:focus>option:checked {
     padding: 10px 15px;
     border: 3px solid rgb(255, 255, 255);
     box-shadow: 0 5px 10px 0 rgba(203, 202, 202, 0.2),0 8px 25px 0 rgba(215, 207, 207, 0.19);
-    
 }
 .aditionalStat span{
     position: absolute;
@@ -201,7 +194,6 @@ img[alt = "Youtube"] {
     height: 40px;
 }
 #data-container{
-
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr; 
     gap: 30px;
@@ -226,6 +218,7 @@ img[alt = "Youtube"] {
 }
 .film-container h4 , h5{
     margin : 0 0 0 0;
+    transform: translate(-55px, 10px);
 }
 .film-container h3{
     margin: 0;
@@ -236,13 +229,22 @@ img[alt = "Youtube"] {
     object-fit: cover;
 }
 .see-more-button{
-    border: 3px transparent;
+    border: none;
+    background-color: transparent;
+    background-image: linear-gradient(to left, #53d2e6 0%, #565de0 100%);
     border-radius: 10px ;
-    border-image: linear-gradient(to left, #14ceea 0%, #e95a93 100%) 1;
-    border-style:solid ;
-    background: rgb(243, 243, 243);
     cursor: pointer;
-
+    transform: translate(55px, -40px);
+    width: 100px;
+    height: 30px;
+    font-size: 1em;
+    transition: .5s cubic-bezier(0.02, 0.44, 0.62, 1.28);
+    &:hover {
+        background-image: linear-gradient(to left, #53d2e6c0 0%, #424aeaba 100%);   
+    } 
+    &:active {
+        transform: translate(55px, -40px) scale(.9);
+    }
 }
 .cha-container , .loc-container, .veh-container{
     
@@ -303,9 +305,9 @@ footer{
     text-decoration: none;
     color: white;
     margin-left: 150px;
-}
-.credit a:hover{
-    text-decoration: underline whitesmoke;
+    &:hover {
+       text-decoration: underline whitesmoke;  
+    }
 }
 @media ( max-width: 400px ) {
     

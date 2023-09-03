@@ -41,21 +41,22 @@ header{
     align-items: center;
     text-align: center;
     top: 40px;
+
+    & .logo{
+        position: absolute;
+        top: 5px;
+        left: 20px;
+        width: 190px;
+        height: 90px; 
+    }
+    & nav{
+        position: absolute;
+        max-width: 600px;  
+        margin-left: 65%;
     
+    }
 }
-.logo{
-    position: absolute;
-    top: 5px;
-    left: 20px;
-    width: 190px;
-    height: 90px; 
-}
-nav{
-    position: absolute;
-    max-width: 600px;  
-    margin-left: 65%;
-    
-}
+
 .horizontal-menu{
     list-style: none;
     display: flex;
@@ -117,14 +118,15 @@ section{
     padding: 0;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2),0 8px 25px 0 rgba(0,0,0,0.19);
 
+    & p{
+        text-align: center;
+        font-size: 20px;
+        font-family: cursive;
+        margin-left: 4px;
+        cursor: default; 
+    }
 }
-section p{
-    text-align: center;
-    font-size: 20px;
-    font-family: cursive;
-    margin-left: 4px;
-    cursor: default; 
-}
+ 
 select{
     
     width: 130px;
@@ -134,15 +136,11 @@ select{
     font-family: cursive;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2),0 8px 25px 0 rgba(0,0,0,0.19);
     margin: 5px 7px;
-    
+    &:focus>option:checked {
+        background: rgba(8, 179, 71, 0.314) !important;
+    } 
 }
-select option:checked,
-select option:hover {
-  box-shadow: 0 0 10px 100px #000 inset;
-}
-select:focus>option:checked {
-    background: rgba(8, 179, 71, 0.314) !important;
-} 
+
 .aditionalStat{
     display: none;
     width: 30%;
@@ -153,14 +151,16 @@ select:focus>option:checked {
     padding: 10px 15px;
     border: 3px solid rgb(255, 255, 255);
     box-shadow: 0 5px 10px 0 rgba(203, 202, 202, 0.2),0 8px 25px 0 rgba(215, 207, 207, 0.19);
+
+    & span {
+        position: absolute;
+        float: left;
+        font-size: 45px;
+        cursor: pointer; 
+        left: 35.5%;
+    }
 }
-.aditionalStat span{
-    position: absolute;
-    float: left;
-    font-size: 45px;
-    cursor: pointer; 
-    left: 35.5%;
-}
+
 #stat{
     background: none;
     border: 5px transparent;
@@ -173,17 +173,17 @@ select:focus>option:checked {
     margin-left: 25px;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2),0 8px 25px 0 rgba(0,0,0,0.19);  
     text-align: center;
-}
-#stat > h3 {
-    color : rgb(1, 76, 15);
-    text-decoration: underline;
-    font-size: 23px;
-    margin: 0 0 0 0;
-}
-#stat > h4 {
-    font-family:  'Segoe UI';
-    font-size: 21px;
-    margin: 0;
+    & h3 {
+        color : rgb(1, 76, 15);
+        text-decoration: underline;
+        font-size: 23px;
+        margin: 0 0 0 0;
+    }
+    & h4 {
+        font-family:  'Segoe UI';
+        font-size: 21px;
+        margin: 0;
+    }
 }
 .redes{
     inline-size: 45px;
@@ -214,20 +214,21 @@ img[alt = "Youtube"] {
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     align-items: center;
     justify-items: center;
-    
+
+    & h3 {
+        margin: 0;
+    }
+    & h4, h5 {
+         margin : 0 0 0 0;
+        transform: translate(-55px, 10px);
+    }
+    & img {
+       width: 200px;
+        height: 250px;
+        object-fit: cover; 
+    } 
 }
-.film-container h4 , h5{
-    margin : 0 0 0 0;
-    transform: translate(-55px, 10px);
-}
-.film-container h3{
-    margin: 0;
-}
-.film-container img{
-    width: 200px;
-    height: 250px;
-    object-fit: cover;
-}
+
 .see-more-button{
     border: none;
     background-color: transparent;
@@ -259,15 +260,10 @@ img[alt = "Youtube"] {
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     justify-items: center;
     align-items: center; 
-}
-.loc-container h4{
-    margin: 0;
-}
-.cha-container h4{
-    margin: 0;
-}
-.veh-container h4{
-    margin: 0;
+
+    & h4 {
+        margin: 0;
+    }
 }
 .imgc{
     width: 200px;

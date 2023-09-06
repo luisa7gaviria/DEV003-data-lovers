@@ -9,10 +9,12 @@ const printGhibliData = (filmsArray) => {
  
     return `<div class="film-container" >  
       <h3 class="title">${film.title} </h3> 
+      <div class="imgc">
       <img src="${film.poster}">
+      </div>
       <h4> 📆 ${film.release_date} </h4>
       <h5> ⭐ ${film.rt_score} </h5>
-      <button id="${film.id}" class="see-more-button"> See more </button> 
+      <button id="${film.id}" class="see-more-button"> See More </button> 
     </div>`    
   })
   document.getElementById('data-container').innerHTML = ghibliMovies.join('');
@@ -28,19 +30,20 @@ const printMoreData = () => {
 
       let seeMore = "";
 
-      [{data: matchId.people, type: "cha-container", title: "Characters", imgClass: "imgc", text: {Age: "", Gender: ""}},
-        {data: matchId.locations, type: "loc-container", title: "Locations", imgClass: "img", text: "Climate: {el.climate}"},
-        {data: matchId.vehicles, type: "veh-container", title: "Vehicles", imgClass: "imgc", text: "{el.description}"}].forEach(function(item) {
-      
+      [{data: matchId.people, type: "cha-container", title: "Characters", imgClass: "imgc"},
+        {data: matchId.locations, type: "loc-container", title: "Locations", imgClass: "imgc"},
+        {data: matchId.vehicles, type: "veh-container", title: "Vehicles", imgClass: "imgc"}].forEach(function(item) {
+          
         item.data.forEach(function(el) {
           seeMore += `
           <div class="${item.type}">
             <h2>${item.title}</h2>
-            <div class="${item.imgClass}">
+            <div class=${item.imgClass}>
               <img src="${el.img}">
             </div>
             <h4>${el.name}</h4>
-            <h5>${item.text}</h5>
+            <h5> ${el.age ? `<strong>Age: </strong>`+ el.age : ''} ${el.gender ? `<strong> Gender: </strong>` + el.gender : ''} 
+            ${el.vehicle_class ? `<strong> Vehicle class: </strong>` + el.vehicle_class : ''} ${el.climate ? `<strong> Climate: </strong>` +  el.climate : ''} </h5>
           </div>
         `;
         });
